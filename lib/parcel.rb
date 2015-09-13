@@ -1,3 +1,5 @@
+require('bigdecimal')
+
 class Parcel
   def initialize(length, height, depth)
     @length = length
@@ -10,6 +12,7 @@ class Parcel
   end
   
   def cost_to_ship()
-    self.volume() / 4
+    volume = BigDecimal.new(self.volume(), 2)
+    cost = volume / 4
   end
 end
